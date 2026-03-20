@@ -1,6 +1,5 @@
 import telebot
 import config
-from datetime import datetime
 
 bot = telebot.TeleBot(config.BOT_TOKEN)
 
@@ -37,20 +36,12 @@ def handle_feedback(message):
 
     if photo_file_id:
         try:
-            # User details
-            user_identifier = f"@{message.from_user.username}" if message.from_user.username else message.from_user.first_name
-            
-            # Date & Time
-            current_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
-            
             # Format the beautiful caption
             caption = "✨ <b>FEEDBACK RECEIVED</b> ✨\n\n"
-            caption += f"👤 <b>Shared By:</b> {user_identifier}\n"
             
             if feedback_text:
-                caption += f"📝 <b>User Caption:</b> {feedback_text}\n"
+                caption += f"📝 <b>User Caption:</b> {feedback_text}\n\n"
                 
-            caption += f"🕒 <b>Date & Time:</b> {current_time}\n\n"
             caption += "━━━━━━━━━━━━━━━━━━━━━\n"
             caption += "🔥 <b>Legacy isnt here only for win , Its here for dominance</b> 👑"
             
