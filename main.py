@@ -6,7 +6,13 @@ bot = telebot.TeleBot(config.BOT_TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "👋 Hello! Send me a picture and I will share it to the feedback channel.")
+    welcome_text = (
+        "👋 <b>Welcome to the Feedback Bot!</b>\n\n"
+        "We'd love to see your feedback. Please send a <b>picture/photo</b> along with an optional caption, "
+        "and I will share it directly to our feedback channel.\n\n"
+        "<i>Note: Only photo submissions are accepted!</i>"
+    )
+    bot.reply_to(message, welcome_text, parse_mode='HTML')
 
 @bot.message_handler(content_types=['photo'])
 def handle_photo(message):
