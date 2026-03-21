@@ -37,14 +37,10 @@ def handle_feedback(message):
     if photo_file_id:
         try:
             # Format the beautiful caption
-            caption = "✨ <b>FEEDBACK RECEIVED</b> ✨\n\n"
-            
+            caption = "✨ FEEDBACK RECEIVED ✨ \n———————————————————\nFrom : LGC CLAN MEMBER ✅\n\n"
+
             if feedback_text:
-                caption += f"📝 <b>User Caption:</b> {feedback_text}\n\n"
-                
-            caption += "━━━━━━━━━━━━━━━━━━━━━\n"
-            caption += "🔥 <b>Legacy isnt here only for win , Its here for dominance</b> 👑"
-            
+                caption += f"📝 <b>User Caption:</b> {feedback_text}\n"            
             # Send photo to the channel with HTML parse mode
             bot.send_photo(
                 chat_id=config.CHANNEL_ID, 
